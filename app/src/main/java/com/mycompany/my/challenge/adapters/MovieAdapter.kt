@@ -12,7 +12,7 @@ import com.mycompany.my.challenge.R
 import com.mycompany.my.challenge.databinding.RowMovieBinding
 import com.mycompany.my.challenge.models.Movie
 
-class MovieAdapter: PagedListAdapter<Movie, MovieAdapter.MoviewViewHolder>(
+class MovieAdapter: PagedListAdapter<Movie, MovieAdapter.MovieViewHolder>(
     movieComparator) {
 
     companion object{
@@ -24,15 +24,15 @@ class MovieAdapter: PagedListAdapter<Movie, MovieAdapter.MoviewViewHolder>(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviewViewHolder {
-        return MoviewViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.row_movie, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+        return MovieViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.row_movie, parent, false))
     }
 
-    override fun onBindViewHolder(holder: MoviewViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         getItem(position)?.let { holder.bind(it) }
     }
 
-    class MoviewViewHolder(itemBinding: RowMovieBinding): RecyclerView.ViewHolder(itemBinding.root) {
+    class MovieViewHolder(itemBinding: RowMovieBinding): RecyclerView.ViewHolder(itemBinding.root) {
         private val binding = itemBinding
         fun bind(item: Movie){
             binding.movie = item
